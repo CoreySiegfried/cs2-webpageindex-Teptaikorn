@@ -9,13 +9,13 @@ public class MyTreeSet{
     // return false;
     // add key to set
     // return true if key is new, false otherwise
-    return;
+    map.put(key, null);
   }
 
   public Iterator<String> keys(){
     // TO BE IMPLEMENTED
     // return an iterator of keys
     // return null;
-    return null;
+    return map.keys();
   }
 }

@@ -13,7 +13,12 @@ public class MyTreeMap{
     // if the element is found, return the value (LinkedList) associated
     // with the key
     // otherwise, if the element is not found return null
-    return null;
+    Element result = tree.find(new Element(word, null));
+    if (result == null){
+      return null;
+    }else{
+      return result.getValue();
+    }
   }
 
   // insert (word, locations) pair to AVL tree
@@ -23,7 +28,16 @@ public class MyTreeMap{
     // if old list is null (doesn't exist), create a new one
     // append new "location" to the list
     // add (word, list) pair to the tree
-    return;
+    Element result = tree.find(new Element(word, null));
+    if (result == null){
+      LinkedList<Integer> list = new LinkedList<Integer>();
+      list.add(location);
+      tree.addElement(new Element(word, list));
+    }else{
+      LinkedList<Integer> list = result.getValue();
+      list.add(location);
+      tree.addElement(new Element(word, list));
+    }
   }
 
   /**
@@ -45,7 +59,7 @@ public class MyTreeMap{
     Iterator<Object> it = tree.inOrderIterator();
     while(it.hasNext()){
       Element e = (Element)it.next();
-      result += e+"\n";
+      result += e+ "\n";
     }
     return result;
   }
